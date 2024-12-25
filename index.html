@@ -13,12 +13,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       height: 100vh;
-      overflow: hidden;
+      overflow: auto;
     }
 
     .container {
       text-align: center;
+      padding: 20px;
+      max-width: 600px;
+      width: 100%;
     }
 
     h1 {
@@ -43,37 +47,46 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      animation: jump 3s infinite ease-in-out;
     }
 
     .button:hover {
       background-color: #ff1493;
     }
 
+    @keyframes jump {
+      0% {
+        transform: translateY(0);
+      }
+      25% {
+        transform: translateY(-15px);
+      }
+      50% {
+        transform: translateY(0);
+      }
+      75% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
     .hidden {
       display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .visible {
+      display: block;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
     }
 
     .candles-balloons {
       margin-top: 30px;
       animation: float 3s infinite ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
     }
 
     .options {
@@ -98,16 +111,67 @@
     }
 
     .message {
-      font-size: 1.5rem;
+      font-size: 0.9rem;
       color: #333;
       margin-top: 20px;
       animation: fadeIn 2s;
+      white-space: pre-line;
+    }
+
+    .credit-section {
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-link a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #333;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+
+    .social-link a:hover {
+      color: #ff69b4;
+    }
+
+    .social-link i {
+      font-size: 1.5rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
   </style>
+  <!-- Add font-awesome for Instagram icon -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>Happy Birthday Chadni!</h1>
+    <h1>Happy Birthday Mashu!</h1>
     <p>Wishing you all the happiness and love on your special day.</p>
     <button class="button" onclick="showSurprise()">Tap me to be surprised</button>
     
@@ -123,17 +187,54 @@
     </div>
     
     <div id="dreamMessage" class="hidden">
-      <p class="message">In my dreams, you come, and I feel you from afar.</p>
+      <p class="message">জন্মদিনের শুভেচ্ছা নেবে প্রিয় মাশু। তোমার ভোলাভালা হাসি নিত্যদিনের মতোই প্রাণবন্ত থাকুক আমার এই প্রার্থনা থাকবে। পৃথিবীর সমস্ত সুখ যদি এককভাবে কাউকে দেওয়া যেতো তবে অলস প্রেমাষ্পদ হিসেবে চাইতাম সে সুখ যেনো তোমার হয়। তোমাকে ভুলে মস্ত বড়ো কঠিন ব্যাপার আর নিতান্তই অলস তাই কঠিন কাজ করতে পারি না। যাহোক,সমৃদ্বির পথে তোমার প্রতিদিন সূর্যোদয় হোক❤️<br>-Nobita</p>
+    </div>
+
+    <!-- Tap to give thanks section -->
+    <div id="thanksSection" class="hidden">
+      <p class="message">Tap to give thanks to Nobita</p>
+      <div class="options">
+        <button class="option-button" onclick="showThankYouMessage()">Thank you</button>
+        <button class="option-button" onclick="showHateYouMessage()">Hate you</button>
+      </div>
+    </div>
+
+    <div id="thankYouMessage" class="hidden">
+      <p class="message">আমাদের নিকটবর্তী ব্যবধান বদলে যেতে পারতো তুমি চাইলেই</p>
+    </div>
+
+    <div id="hateYouMessage" class="hidden">
+      <p class="message">তাতে কি তুমিই তো</p>
+    </div>
+
+    <!-- Credit Section -->
+    <div class="credit-section">
+      <p>Coded by: <strong>Nobita</strong></p>
+    </div>
+
+    <!-- Social Media Link Section -->
+    <div class="social-link">
+      <i class="fab fa-instagram"></i>
+      <a href="https://instagram.com/anonymously_its_me_1" target="_blank">anonymously_its_me_1</a>
     </div>
   </div>
 
   <script>
     function showSurprise() {
-      document.getElementById('surprise').classList.remove('hidden');
+      document.getElementById('surprise').classList.add('visible');
     }
 
     function showDreamMessage() {
-      document.getElementById('dreamMessage').classList.remove('hidden');
+      document.getElementById('dreamMessage').classList.add('visible');
+      document.getElementById('thanksSection').classList.add('visible');
+    }
+
+    function showThankYouMessage() {
+      document.getElementById('thankYouMessage').classList.add('visible');
+    }
+
+    function showHateYouMessage() {
+      document.getElementById('hateYouMessage').classList.add('visible');
     }
   </script>
 </body>
