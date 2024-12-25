@@ -1,20 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nahid Store</title>
+  <style>
+    /* General Reset and Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: transform 0.3s ease;
+    }
+
+    header .logo:hover {
+      transform: scale(1.1);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #f4a261;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 5rem 1rem;
+      background: linear-gradient(135deg, #333, #555);
+      color: #fff;
+      background-size: cover;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 2s;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      animation: fadeIn 2.5s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Subcategories Section */
+    .subcategories {
+      padding: 3rem 1rem;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    .subcategories h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .subcategory-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .subcategory {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 250px;
+      padding: 1.5rem;
+      background-color: #f4f4f4;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .subcategory:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .subcategory img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .subcategory h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Product Section */
+    .products {
+      padding: 3rem 1rem;
+      background-color: #f8f9fa;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .product-card {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      width: 220px;
+      text-align: center;
+      border-radius: 8px;
+      background-color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .product-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .product-card button {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1.2rem;
+      border: none;
+      background-color: #f4a261;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card button:hover {
+      background-color: #e76f51;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Happy Birthday!</h1>
-        <p class="message">To the most amazing person, I wish you all the happiness in the world.</p>
-        <div class="balloons">
-            <div class="balloon balloon1"></div>
-            <div class="balloon balloon2"></div>
-            <div class="balloon balloon3"></div>
+  <header>
+    <div class="logo">Nahid Store</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#subcategories">Subcategories</a></li>
+        <li><a href="#products">Products</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <h1>Welcome to Nahid Store</h1>
+      <p>Where quality meets affordability!</p>
+    </section>
+
+    <section id="subcategories" class="subcategories">
+      <h2>Shop by Subcategories</h2>
+      <div class="subcategory-grid">
+        <div class="subcategory">
+          <img src="https://via.placeholder.com/250?text=Electronics" alt="Electronics">
+          <h3>Electronics</h3>
         </div>
-    </div>
+        <div class="subcategory">
+          <img src="https://via.placeholder.com/250?text=Fashion" alt="Fashion">
+          <h3>Fashion</h3>
+        </div>
+        <div class="subcategory">
+          <img src="https://via.placeholder.com/250?text=Groceries" alt="Groceries">
+          <h3>Groceries</h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="products">
+      <h2>Our Products</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="https://via.placeholder.com/220?text=Laptop" alt="Laptop">
+          <h3>Laptop</h3>
+          <p>$800</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="https://via.placeholder.com/220?text=T-Shirt" alt="T-Shirt">
+          <h3>Stylish T-Shirt</h3>
+          <p>$20</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="https://via.placeholder.com/220?text=Rice" alt="Rice">
+          <h3>Premium Rice</h3>
+          <p>$10</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
