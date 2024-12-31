@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday</title>
+  <title>Happy Birthday Mashu</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -47,29 +47,26 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      animation: jump 3s infinite ease-in-out;
     }
 
     .button:hover {
       background-color: #ff1493;
     }
 
-    @keyframes jump {
-      0% {
-        transform: translateY(0);
-      }
-      25% {
-        transform: translateY(-15px);
-      }
-      50% {
-        transform: translateY(0);
-      }
-      75% {
-        transform: translateY(-15px);
-      }
-      100% {
-        transform: translateY(0);
-      }
+    .simple-button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      font-size: 1rem;
+      color: #333;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .simple-button:hover {
+      background-color: #f0f0f0;
     }
 
     .hidden {
@@ -84,38 +81,15 @@
       transition: opacity 0.5s ease-in-out;
     }
 
-    .candles-balloons {
-      margin-top: 30px;
-      animation: float 3s infinite ease-in-out;
-    }
-
-    .options {
-      margin-top: 20px;
-      animation: fadeIn 2s;
-    }
-
-    .option-button {
-      margin: 10px;
-      padding: 10px 15px;
-      font-size: 1rem;
-      color: #fff;
-      background-color: #4caf50;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .option-button:hover {
-      background-color: #45a049;
-    }
-
     .message {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: #333;
       margin-top: 20px;
       animation: fadeIn 2s;
       white-space: pre-line;
+      background: #ffedf3;
+      padding: 15px;
+      border-radius: 10px;
     }
 
     .credit-section {
@@ -156,63 +130,45 @@
         opacity: 1;
       }
     }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
   </style>
-  <!-- Add font-awesome for Instagram icon -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <h1>Happy Birthday Mashu!</h1>
     <p>Wishing you all the happiness and love on your special day.</p>
-    <button class="button" onclick="showSurprise()">Tap me to be surprised</button>
-    
-    <div id="surprise" class="hidden">
-      <div class="candles-balloons">
-        🎂🔥🎈🎈🎂🔥🎈🎈
-      </div>
-      <div class="options">
-        <p>Have you remembered me?</p>
-        <button class="option-button" onclick="showDreamMessage()">Yes</button>
-        <button class="option-button" onclick="alert('Oh no! Please try to remember.')">No</button>
-      </div>
-    </div>
-    
-    <div id="dreamMessage" class="hidden">
-      <p class="message">জন্মদিনের শুভেচ্ছা নেবে প্রিয় মাশু। তোমার ভোলাভালা হাসি নিত্যদিনের মতোই প্রাণবন্ত থাকুক আমার এই প্রার্থনা থাকবে। পৃথিবীর সমস্ত সুখ যদি এককভাবে কাউকে দেওয়া যেতো তবে অলস প্রেমাষ্পদ হিসেবে চাইতাম সে সুখ যেনো তোমার হয়। তোমাকে ভুলে মস্ত বড়ো কঠিন ব্যাপার আর নিতান্তই অলস তাই কঠিন কাজ করতে পারি না। যাহোক,সমৃদ্বির পথে তোমার প্রতিদিন সূর্যোদয় হোক❤️<br>-Nobita</p>
+    <button class="button" onclick="showMessage()">Tap me to see a special message!</button>
+
+    <div id="messageBox" class="hidden">
+      <p class="message">
+        জন্মদিনের শুভেচ্ছা নেবে প্রিয় মাশু!তোমার ভোলাভালা হাসি নিত্যদিনের মতোই প্রাণবন্ত থাকুক আমার এই প্রার্থনা থাকবে!
+        পৃথিবীর সমস্ত সুখ যদি এককভাবে কাউকে দেওয়া যেতো তবে অলস প্রেমাষ্পদ হিসেবে চাইতাম সে সুখ যেনো তোমার হয়!
+        তোমাকে ভুলে যাওয়া মস্ত বড়ো কঠিন ব্যাপার আর নিতান্তই অলস তাই কঠিন কাজ করতে পারি না!
+        যাহোক,সমৃদ্ধির পথে তোমার প্রতিদিন সূর্যোদয় হোক❤️
+        <br><br>- Nobita
+      </p>
     </div>
 
-    <!-- Tap to give thanks section -->
-    <div id="thanksSection" class="hidden">
-      <p class="message">Tap to give thanks to Nobita</p>
-      <div class="options">
-        <button class="option-button" onclick="showThankYouMessage()">Thank you</button>
-        <button class="option-button" onclick="showHateYouMessage()">Hate you</button>
+    <div id="dateSelection" class="hidden">
+      <p class="message">Hey,Cutiee!Select a beautiful date for our first meet:</p>
+      <input type="date" id="meetingDate" />
+      <button class="simple-button" onclick="confirmDate()">Confirm Date</button>
+      <div id="dateMessage" class="hidden message">
+        Remember the date dear, soon I will make it true and listen: a gift will be sent to you automatically. No matter how it will be sent, the matter is that I am the sender. The gift is not enough costly, but I tried to cover it with love.
       </div>
     </div>
 
-    <div id="thankYouMessage" class="hidden">
-      <p class="message">আমাদের নিকটবর্তী ব্যবধান বদলে যেতে পারতো তুমি চাইলেই</p>
+    <div id="emailBox" class="hidden">
+      <p class="message">Have you any message for Nobita?</p>
+      <textarea id="userMessage" rows="4" cols="50" placeholder="Write your message here..."></textarea>
+      <br>
+      <button class="simple-button" onclick="sendMessage()">Send Message</button>
     </div>
 
-    <div id="hateYouMessage" class="hidden">
-      <p class="message">তাতে কি তুমিই তো</p>
-    </div>
-
-    <!-- Credit Section -->
     <div class="credit-section">
       <p>Coded by: <strong>Nobita</strong></p>
     </div>
 
-    <!-- Social Media Link Section -->
     <div class="social-link">
       <i class="fab fa-instagram"></i>
       <a href="https://instagram.com/anonymously_its_me_1" target="_blank">anonymously_its_me_1</a>
@@ -220,21 +176,28 @@
   </div>
 
   <script>
-    function showSurprise() {
-      document.getElementById('surprise').classList.add('visible');
+    function showMessage() {
+      document.getElementById('messageBox').classList.add('visible');
+      document.getElementById('dateSelection').classList.add('visible');
+      document.getElementById('emailBox').classList.add('visible');
     }
 
-    function showDreamMessage() {
-      document.getElementById('dreamMessage').classList.add('visible');
-      document.getElementById('thanksSection').classList.add('visible');
+    function confirmDate() {
+      const dateInput = document.getElementById('meetingDate').value;
+      if (!dateInput) {
+        alert('Please select a date!');
+        return;
+      }
+      document.getElementById('dateMessage').classList.add('visible');
     }
 
-    function showThankYouMessage() {
-      document.getElementById('thankYouMessage').classList.add('visible');
-    }
-
-    function showHateYouMessage() {
-      document.getElementById('hateYouMessage').classList.add('visible');
+    function sendMessage() {
+      const message = document.getElementById('userMessage').value;
+      if (!message) {
+        alert('Please write a message before sending.');
+        return;
+      }
+      window.location.href = `mailto:bdd597812@gmail.com?subject=Message%20from%20Mashu&body=${encodeURIComponent(message)}`;
     }
   </script>
 </body>
